@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老公欠债跑路，大耳窿堵到工作地点！29岁Klang妈妈一个人扛两个孩子，直到前同事告诉她一个秘密...</title>
+    <style>
+        /* --- 1. 全宽布局重置 --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            width: 100%;
+        }
+
+        /* --- 2. 导航栏样式 (Sticky & Full Width) --- */
+        :root {
+            --moretify-orange: #FF5722;
+            --text-black: #1a1a1a;
+        }
+
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links { display: none; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--text-black); font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--moretify-orange); }
+
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .social-icons { display: none; gap: 12px; }
+        .social-icons a { color: #333; font-size: 14px; }
+
+        .mobile-menu-btn { display: flex; flex-direction: column; gap: 4px; cursor: pointer; }
+        .mobile-menu-btn span { width: 22px; height: 2px; background: #333; }
+
+        @media (min-width: 992px) {
+            .mobile-menu-btn { display: none; }
+            .nav-links { display: flex; margin: 0; padding: 0; }
+            .social-icons { display: flex; }
+            .nav-logo { margin-right: 40px; justify-content: flex-start; }
+        }
+        @media (max-width: 991px) {
+            .nav-container { display: grid; grid-template-columns: 1fr auto 1fr; }
+            .nav-actions { justify-content: flex-end; }
+            .nav-logo { justify-content: center; }
+        }
+
+        /* --- 3. 文章容器 (宽度限制在 600px) --- */
+        .article-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        h1 { color: #1a1a1a; font-size: 26px; line-height: 1.4; font-weight: 700; margin-top: 10px; }
+        h2 { font-size: 24px; border-left: 4px solid #0085E5; padding-left: 10px; margin: 30px 0 15px; font-weight: bold; }
+
+        .meta-header { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .meta-info { color: #666; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+
+        .read-time {
+            display: inline-flex;
+            align-items: center;
+            font-size: 12px;
+            background: #0085E5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+            width: fit-content;
+        }
+        .read-time::before {
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 5px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .image-box { text-align: center; margin: 25px 0; }
+        .image-box img { width: 100%; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .image-box p small { color: #999; display: block; margin-top: 8px; font-size: 13px; }
+
+        .quote-box { background-color: #f1f8ff; padding: 20px; margin: 25px 0; border-radius: 8px; font-weight: 500; color: #333; text-align: center; border-left: none; }
+        .highlight { color: #d93025; font-weight: bold; background: linear-gradient(transparent 70%, #fff2f2 30%); }
+        .bold-black { font-weight: bold; }
+
+        .step-list { background-color: #fff9e6; padding: 25px; border-radius: 12px; border: 1px solid #ffe58f; margin: 30px 0; }
+
+        .brand-link { color: #003399; font-weight: bold; text-decoration: underline; }
+
+        .cta-button {
+            display: block;
+            background-color: #0085E5;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 15px;
+            margin: 40px 0;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0, 133, 229, 0.3);
+            transition: background 0.3s;
+            animation: pulse-blue-btn 2s infinite;
+        }
+        .cta-button:hover { background-color: #006bb3; }
+        @keyframes pulse-blue-btn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(51, 169, 255, 0.7); }
+            50% { transform: scale(1.04); box-shadow: 0 0 0 15px rgba(51, 169, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(51, 169, 255, 0); }
+        }
+
+        hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+        .footer-note { font-size: 12px; color: #aaa; text-align: center; padding: 20px 0; }
+    </style>
+	<meta http-equiv="delegate-ch" content="sec-ch-ua https://rativelypormailer.com; sec-ch-ua-mobile https://rativelypormailer.com; sec-ch-ua-arch https://rativelypormailer.com; sec-ch-ua-model https://rativelypormailer.com; sec-ch-ua-platform https://rativelypormailer.com; sec-ch-ua-platform-version https://rativelypormailer.com; sec-ch-ua-bitness https://rativelypormailer.com; sec-ch-ua-full-version-list https://rativelypormailer.com; sec-ch-ua-full-version https://rativelypormailer.com"><style>.dtpcnt{opacity: 0;}</style>
+	<script>
+		(function(e,d,k,n,u,v,g,w,C,f,p,x,D,c,q,r,h,t,y,G,z){function A(){for(var a=d.querySelectorAll(".dtpcnt"),b=0,l=a.length;b<l;b++)a[b][w]=a[b][w].replace(/(^|\s+)dtpcnt($|\s+)/g,"")}function E(a,b,l,F){var m=new Date;m.setTime(m.getTime()+(F||864E5));d.cookie=a+"="+b+"; "+l+"samesite=Strict; expires="+m.toGMTString()+"; path=/";k.setItem(a,b);k.setItem(a+"-expires",m.getTime())}function B(a){var b=d.cookie.match(new RegExp("(^| )"+a+"=([^;]+)"));return b?b.pop():k.getItem(a+"-expires")&&+k.getItem(a+
+	"-expires")>(new Date).getTime()?k.getItem(a):null}z="https:"===e.location.protocol?"secure; ":"";e[f]||(e[f]=function(){(e[f].q=e[f].q||[]).push(arguments)},r=d[u],d[u]=function(){r&&r.apply(this,arguments);if(e[f]&&!e[f].hasOwnProperty("params")&&/loaded|interactive|complete/.test(d.readyState))for(;c=d[v][p++];)/\/?click\/?($|(\/[0-9]+)?$)/.test(c.pathname)&&(c[g]="javascrip"+e.postMessage.toString().slice(4,5)+":"+f+'.l="'+c[g]+'",void 0')},setTimeout(function(){(t=RegExp("[?&]cpid(=([^&#]*)|&|#|$)").exec(e.location.href))&&
+	t[2]&&(h=t[2],y=B("vl-"+h));var a=B("vl-cep"),b=location[g];if("savedCep"===D&&a&&(!h||"undefined"===typeof h)&&0>b.indexOf("cep=")){var l=-1<b.indexOf("?")?"&":"?";b+=l+a}c=d.createElement("script");q=d.scripts[0];c.defer=1;c.src=x+(-1===x.indexOf("?")?"?":"&")+"lpref="+n(d.referrer)+"&lpurl="+n(b)+"&lpt="+n(d.title)+"&vtm="+(new Date).getTime()+(y?"&uw=no":"");c[C]=function(){for(p=0;c=d[v][p++];)/dtpCallback\.l/.test(c[g])&&(c[g]=decodeURIComponent(c[g]).match(/dtpCallback\.l="([^"]+)/)[1]);A()};
+	q.parentNode.insertBefore(c,q);h&&E("vl-"+h,"1",z)},0),setTimeout(A,7E3))})(window,document,localStorage,encodeURIComponent,"onreadystatechange","links","href","className","onerror","dtpCallback",0,"https://rativelypormailer.com/d/afa64380-8889-4065-bf75-d2789f5d5dcd.js","savedCep");
+	</script>
+	<noscript><link href="https://rativelypormailer.com/d/afa64380-8889-4065-bf75-d2789f5d5dcd.js?noscript=true&lpurl=" rel="stylesheet"/></noscript>
+</head>
+<body>
+
+<!-- ==================== 导航栏 ==================== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="mobile-menu-btn" id="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-logo">
+            <img src="assets/logo.png" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="https://rativelypormailer.com/click">新闻</a></li>
+            <li><a href="https://rativelypormailer.com/click">趣闻</a></li>
+            <li><a href="https://rativelypormailer.com/click">生活</a></li>
+            <li><a href="https://rativelypormailer.com/click">好康</a></li>
+            <li><a href="https://rativelypormailer.com/click">科技</a></li>
+            <li><a href="https://rativelypormailer.com/click">美食</a></li>
+            <li><a href="https://rativelypormailer.com/click">娱乐</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="social-icons">
+                <a href="https://rativelypormailer.com/click"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="search-btn">
+                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== 文章内容 ==================== -->
+<div class="article-container">
+
+    <span class="read-time">3分钟阅读</span>
+
+    <h1>老公欠债跑路，大耳窿堵到工作地点！29岁Klang妈妈一个人扛两个孩子，直到前同事告诉她一个秘密...</h1>
+
+    <div class="meta-info">
+        <span><strong>作者：</strong>李美君 | 大马生活日报</span><br>
+        <span><strong>发布日期：</strong><span id="dynamic-date"></span></span>
+    </div>
+
+    <!-- 封面图 -->
+    <div class="image-box">
+        <img src="assets/1.jpg" alt="家门被喷字的画面和模糊女性背影">
+    </div>
+
+    <!-- 开场引言 -->
+    <div class="quote-box"><p>"妈妈，爸爸几时回来？"</p></div>
+
+    <!-- ===== SECTION 1: Hook 痛苦背景 ===== -->
+    <p>每次女儿问这句话，Siew Mei（化名）都要转过身去，假装在忙，不让孩子看到她的眼睛。</p>
+
+    <p>两年前的一个早上，她醒来发现枕头旁边是空的。老公的衣服少了一半，车也不在。电话打不通，WhatsApp 两个蓝勾但没有回。</p>
+
+    <p>她以为出了什么事，报了警。结果警察查完告诉她：你老公没有出事，他是自己走的。</p>
+
+    <p>三天后，大耳窿上门了。她才知道，老公在外面欠了超过<span class="highlight">6位数</span>的债。</p>
+
+    <!-- ===== SECTION 2: 家门被喷字 ===== -->
+    <h2>家门被喷字那天，女儿不敢出门了</h2>
+
+    <p>Siew Mei 怎么也想不到，跟自己睡了7年的人，会做这种事。</p>
+
+    <p>大耳窿第一次来的时候，她还试着解释："这是他的债，不是我的。"</p>
+
+    <p>对方笑了一下："你是他老婆，他不在就你还。很简单的道理。"</p>
+
+    <p>之后就没停过。半夜 bang bang bang 敲门，小儿子被吓到哭。有一天回到家，整扇门被喷了红色的字，"欠钱还钱"。四个大字，整条走廊的邻居都看到了。</p>
+
+    <!-- 痛苦配图 -->
+    <div class="image-box">
+        <img src="assets/2.png" alt="家门被喷漆催债的画面">
+        <p><small>图片：大耳窿在 Siew Mei 家门口喷字催债</small></p>
+    </div>
+
+    <p>6岁的女儿看着那些字，问她："妈妈，这些字是什么意思？"</p>
+
+    <p>从那天起，女儿不敢一个人走出门了。</p>
+
+    <p>更过分的是，大耳窿还跑去她做工的 Watson 门口等她。经理叫她进去谈，说如果再有人来闹，她可能要被调走。</p>
+
+    <p>公婆知道了，不但没有帮忙，还打电话来骂她："你是做老婆的，连老公去哪里都不知道？"</p>
+
+    <p>Siew Mei 挂了电话，坐在 Watson 的仓库里，哭了20分钟。然后擦干眼泪，出去继续上班。因为如果她也倒了，两个孩子就真的没有人了。</p>
+
+    <!-- ===== SECTION 3: 转折/刺激事件 ===== -->
+    <h2>结账台前的那个熟悉面孔</h2>
+
+    <p>那天下午是她的轮班。</p>
+
+    <p>一个客人拿了几样东西来结账，Siew Mei 扫到一半抬头看了一眼，是 Ah Ling，以前一起在 Watson 做的同事。半年前辞职了，说要"休息一下"。</p>
+
+    <p>但现在的 Ah Ling 看起来完全不像在休息。皮肤好了，指甲做了，手上拿的是新款手机。</p>
+
+    <!-- 转折配图 -->
+    <div class="image-box">
+        <img src="assets/3.jpg" alt="Watson收银台的画面">
+    </div>
+
+    <p>Siew Mei 帮她结完账，忍不住说了一句："Ah Ling 啊，你现在去哪里做工了？看你气色很好。"</p>
+
+    <p>Ah Ling 笑了笑说："我找到了一个很奇怪的方法来赚钱，但是讲出来没人信的。"</p>
+
+    <p>Siew Mei 扫了她一眼，以为又是那种卖面膜拉人头的。</p>
+
+    <p>Ah Ling 看出来了，直接拿出手机，在柜台上给她看了一个画面："你看这个，叫 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a>。"</p>
+
+    <!-- ===== SECTION 4: 发现/初次尝试 ===== -->
+    <h2>柜台上的那个画面</h2>
+
+    <p>Ah Ling 快速划了几页给她看。Curaçao 国际合法牌照、佘诗曼代言、TNG 直接充值和提款。然后划到了自己的提款记录，一笔一笔的 TNG 到账通知，最大一笔 <span class="highlight">RM38,000</span>。</p>
+
+    <p>"我辞职之后的生活费，全部从这里来的。<span class="bold-black">RM50</span> 试一下而已。"</p>
+
+    <p>后面有客人在排队了，Ah Ling 把链接 WhatsApp 给她，就走了。</p>
+
+    <p>那天晚上哄完两个孩子睡觉，Siew Mei 坐在客厅打开 Ah Ling 发的链接，看了很久。半信半疑，毕竟网上骗局太多了。但 Ah Ling 的提款记录是真的，牌照也查得到。她想，试一下 RM50 而已，最坏也就是少吃两天。</p>
+
+    <p>那天晚上哄完两个孩子睡觉，她坐在客厅看着 MAE 里面的 <span class="highlight">RM230</span>。</p>
+
+    <p><span class="bold-black">RM50</span>。一天的饭钱。</p>
+
+    <p>但如果不试，明天还是一样。<span class="highlight">RM2,300</span> 的薪水，大耳窿随时来闹，女儿不敢出门，儿子半夜被吵到哭。</p>
+
+    <p>凌晨12点，她注册了 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a>。用 TNG 充了 <span class="bold-black">RM50</span>，领了 <span class="bold-black">195次免费旋转</span>。</p>
+
+    <!-- ===== 两个孩子睡着后 ===== -->
+    <h2>两个孩子睡着后，她的手机亮了</h2>
+
+    <p>她选了 Ah Ling 推荐的游戏，用195次免费旋转开始转。</p>
+
+    <p>前面15分钟没什么感觉。赢几块，输几块。</p>
+
+    <p>她差点关掉去洗碗了。</p>
+
+    <p>然后屏幕突然一闪，闪电劈下来，满屏的乘数球疯狂掉落，5x、10x、50x，连着一直翻！数字越叠越高，根本停不下来。500x 的时候她整个人呆住了，手在抖但不敢碰屏幕，怕一碰就没了。</p>
+
+    <p>最后画面停下来，跳出一个数字，<span class="highlight">RM22,800。</span></p>
+
+    <!-- 游戏/爆分截图 -->
+    <div class="image-box">
+        <img src="assets/4.png" alt="游戏爆分截图">
+        <p><small>图片：游戏爆分画面</small></p>
+    </div>
+
+    <p>她看着屏幕，嘴巴张着但没有声音。然后慢慢转头看了一眼房间，两个孩子还在睡。</p>
+
+    <p>她按了提款。不到5分钟，TNG 通知响了。钱到了。</p>
+
+    <p>她抱着手机，缩在沙发角落，哭了出来。</p>
+
+    <p>不是伤心。是终于看到了一条路。</p>
+
+    <!-- ===== SECTION 5: 高潮/人生翻转 ===== -->
+    <h2>7天，她带孩子搬走了</h2>
+
+    <p>有了第一次的底气，接下来几天，她每天哄完孩子睡着后就打开 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a> 玩一两个小时。</p>
+
+    <p>第3天又爆了一次，闪电连劈三轮，乘数叠到 800x，一次进了 <span class="highlight">RM47,000</span>。</p>
+
+    <p>第5天再中了一次 <span class="highlight">RM35,000</span>。</p>
+
+    <p>第7天，她打开 MAE，看着累计的余额，<span class="highlight">RM126,500。</span></p>
+
+    <!-- 余额截图 -->
+    <div class="image-box">
+        <img src="assets/5.png" alt="MAE余额截图显示RM126,500">
+        <p><small>图片：Siew Mei的MAE余额截图</small></p>
+    </div>
+
+    <p>她做的第一件事：去找大耳窿。把老公欠的债全部还清了。</p>
+
+    <p>说了一句："钱还完了。以后不要再来找我和我的孩子。"</p>
+
+    <p>然后她做了第二件事：带两个孩子搬家。搬去一个大耳窿不知道的地方。一间小公寓，但干净、安全，门口没有喷字。</p>
+
+    <p>搬进去的第一个晚上，女儿在新房间跑来跑去，笑着说："妈妈，这个房间好大！"</p>
+
+    <p>儿子已经在新床上睡着了。</p>
+
+    <p>Siew Mei 站在阳台，看着两个孩子，终于觉得可以呼吸了。</p>
+
+    <p>那天晚上，女儿没有问"爸爸几时回来"。</p>
+
+    <p>她问的是：<span class="bold-black">"妈妈，我们可以一直住这里吗？"</span></p>
+
+    <p>Siew Mei 笑了："可以。我们不走了。"</p>
+
+    <!-- 情感高潮引言 -->
+    <div class="quote-box"><p>"妈妈，我们可以一直住这里吗？"</p></div>
+
+    <!-- ===== SECTION 6: Offer Reveal ===== -->
+    <h2>如何用RM50开始？</h2>
+
+    <p>Siew Mei 现在还是在 Watson 做工，但每天孩子睡了之后都会花一两个小时玩 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a>。她说这已经变成她的日常了，像别人哄完孩子追剧一样。</p>
+
+    <p>"别人追剧放松，我就打开 YE55 转一转，顺便赚点钱。"她笑着说。女儿在新学校交到了朋友，儿子送去了托儿所，她做工的时候不用再担心大耳窿来门口闹了。</p>
+
+    <!-- 转账记录截图 -->
+    <div class="image-box">
+        <img src="assets/6.png" alt="TNG转账记录">
+        <p><small>图片：来自YE55的TNG转账记录</small></p>
+    </div>
+
+    <p>以下是 Siew Mei 分享的逆袭步骤：</p>
+
+    <!-- ===== CTA: 5步行动指引 ===== -->
+    <div class="step-list">
+        <h3>用 RM50 开启你的逆袭之路</h3>
+        <p><strong>第一步:</strong> 点击下方官方链接进入 <a href="https://rativelypormailer.com/click" target="_blank" class="brand-link">YE55</a> 注册页面</p>
+        <p><strong>第二步:</strong> 用TNG充值 <span class="bold-black">RM50</span> 激活新版功能 — <span class="bold-black">195次免费旋转</span></p>
+        <p><strong>第三步:</strong> 选择高RTP高赔率的热门游戏，开始旋转</p>
+        <p><strong>第四步:</strong> 开始转！看数字一直叠上去，像 Siew Mei 一样越转越多</p>
+        <p><strong>第五步:</strong> 按提款，奖金秒进TNG / MAE，几分钟到账</p>
+    </div>
+
+    <p>命运从来不会抛弃不放弃的人。有时候，你离改变，只差那一次勇敢的决定！</p>
+
+    <!-- CTA 按钮 -->
+    <a href="https://rativelypormailer.com/click" target="_blank" class="cta-button" id="claimOffer">立即点击领取195次免费旋转，改变你的人生！</a>
+
+    <!-- 信任声明 -->
+    <div class="footer-note">
+        （由TNG官方长期合作平台 YE55 提供技术支持，Curaçao 合法牌照，佘诗曼代言，资金安全100%保障）
+    </div>
+
+</div>
+
+<!-- 动态日期：自动显示3天前的日期 -->
+<script>
+    (function() {
+        const dateElement = document.getElementById('dynamic-date');
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() - 3);
+        const year = targetDate.getFullYear();
+        const month = targetDate.getMonth() + 1;
+        const day = targetDate.getDate();
+        dateElement.textContent = year + '年' + month + '月' + day + '日';
+    })();
+</script>
+
+</body>
+</html>
