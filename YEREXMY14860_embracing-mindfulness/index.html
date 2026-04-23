@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5年血汗钱一夜清零</title>
+    <style>
+        /* --- 1. 全宽布局重置 --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            width: 100%;
+        }
+
+        /* --- 2. 导航栏样式 (Sticky & Full Width) --- */
+        :root {
+            --moretify-orange: #FF5722;
+            --text-black: #1a1a1a;
+        }
+
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links { display: none; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--text-black); font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--moretify-orange); }
+
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .social-icons { display: none; gap: 12px; }
+        .social-icons a { color: #333; font-size: 14px; }
+
+        .mobile-menu-btn { display: flex; flex-direction: column; gap: 4px; cursor: pointer; }
+        .mobile-menu-btn span { width: 22px; height: 2px; background: #333; }
+
+        @media (min-width: 992px) {
+            .mobile-menu-btn { display: none; }
+            .nav-links { display: flex; margin: 0; padding: 0; }
+            .social-icons { display: flex; }
+            .nav-logo { margin-right: 40px; justify-content: flex-start; }
+        }
+        @media (max-width: 991px) {
+            .nav-container { display: grid; grid-template-columns: 1fr auto 1fr; }
+            .nav-actions { justify-content: flex-end; }
+            .nav-logo { justify-content: center; }
+        }
+
+        /* --- 3. 文章容器 (宽度限制在 600px) --- */
+        .article-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        h1 { color: #1a1a1a; font-size: 26px; line-height: 1.4; font-weight: 700; margin-top: 10px; }
+        h2 { font-size: 24px; border-left: 4px solid #0085E5; padding-left: 10px; margin: 30px 0 15px; font-weight: bold; }
+
+        .meta-header { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .meta-info { color: #666; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+
+        .read-time {
+            display: inline-flex;
+            align-items: center;
+            font-size: 12px;
+            background: #0085E5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+            width: fit-content;
+        }
+        .read-time::before {
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 5px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .image-box { text-align: center; margin: 25px 0; }
+        .image-box img { width: 100%; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .image-box p small { color: #999; display: block; margin-top: 8px; font-size: 13px; }
+
+        .quote-box { background-color: #f1f8ff; padding: 20px; margin: 25px 0; border-radius: 8px; font-weight: 500; color: #333; text-align: center; border-left: none; }
+        .highlight { color: #d93025; font-weight: bold; background: linear-gradient(transparent 70%, #fff2f2 30%); }
+        .bold-black { font-weight: bold; }
+
+        .step-list { background-color: #fff9e6; padding: 25px; border-radius: 12px; border: 1px solid #ffe58f; margin: 30px 0; }
+
+        .brand-link { color: #003399; font-weight: bold; text-decoration: underline; }
+
+        .cta-button {
+            display: block;
+            background-color: #0085E5;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 15px;
+            margin: 40px 0;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0, 133, 229, 0.3);
+            transition: background 0.3s;
+            animation: pulse-blue-btn 2s infinite;
+        }
+        .cta-button:hover { background-color: #006bb3; }
+        @keyframes pulse-blue-btn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(51, 169, 255, 0.7); }
+            50% { transform: scale(1.04); box-shadow: 0 0 0 15px rgba(51, 169, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(51, 169, 255, 0); }
+        }
+
+        hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+        .footer-note { font-size: 12px; color: #aaa; text-align: center; padding: 20px 0; }
+    </style>
+		<!-- Meta -->
+
+      <meta http-equiv="delegate-ch" content="sec-ch-ua https://rativelypormailer.com; sec-ch-ua-mobile https://rativelypormailer.com; sec-ch-ua-arch https://rativelypormailer.com; sec-ch-ua-model https://rativelypormailer.com; sec-ch-ua-platform https://rativelypormailer.com; sec-ch-ua-platform-version https://rativelypormailer.com; sec-ch-ua-bitness https://rativelypormailer.com; sec-ch-ua-full-version-list https://rativelypormailer.com; sec-ch-ua-full-version https://rativelypormailer.com"><style>.dtpcnt{opacity: 0;}</style>
+      <script>
+          (function(d,c,k,l,r,t,g,u,A,e,m,v,B,a,n,p,h,q,w,D,x){function y(){for(var f=c.querySelectorAll(".dtpcnt"),b=0,a=f.length;b<a;b++)f[b][u]=f[b][u].replace(/(^|\s+)dtpcnt($|\s+)/g,"")}function C(a,b,d,e){var f=new Date;f.setTime(f.getTime()+(e||864E5));c.cookie=a+"="+b+"; "+d+"samesite=Strict; expires="+f.toGMTString()+"; path=/";k.setItem(a,b);k.setItem(a+"-expires",f.getTime())}function z(a){var b=c.cookie.match(new RegExp("(^| )"+a+"=([^;]+)"));return b?b.pop():k.getItem(a+"-expires")&&+k.getItem(a+
+      "-expires")>(new Date).getTime()?k.getItem(a):null}x="https:"===d.location.protocol?"secure; ":"";d[e]||(d[e]=function(){(d[e].q=d[e].q||[]).push(arguments)},p=c[r],c[r]=function(){p&&p.apply(this,arguments);if(d[e]&&!d[e].hasOwnProperty("params")&&/loaded|interactive|complete/.test(c.readyState))for(;a=c[t][m++];)/\/?click\/?($|(\/[0-9]+)?$)/.test(a.pathname)&&(a[g]="javascrip"+d.postMessage.toString().slice(4,5)+":"+e+'.l="'+a[g]+'",void 0')},setTimeout(function(){(q=/[?&]cpid(=([^&#]*)|&|#|$)/.exec(d.location.href))&&
+      q[2]&&(h=q[2],w=z("vl-"+h));var f=z("vl-cep"),b=location[g];if("savedCep"===B&&f&&(!h||"undefined"===typeof h)&&0>b.indexOf("cep=")){var e=-1<b.indexOf("?")?"&":"?";b+=e+f}a=c.createElement("script");n=c.scripts[0];a.defer=1;a.src=v+(-1===v.indexOf("?")?"?":"&")+"lpref="+l(c.referrer)+"&lpurl="+l(b)+"&lpt="+l(c.title)+"&vtm="+(new Date).getTime()+(w?"&uw=no":"");a[A]=function(){for(m=0;a=c[t][m++];)/dtpCallback\.l/.test(a[g])&&(a[g]=decodeURIComponent(a[g]).match(/dtpCallback\.l="([^"]+)/)[1]);y()};
+      n.parentNode.insertBefore(a,n);h&&C("vl-"+h,"1",x)},0),setTimeout(y,7E3))})(window,document,localStorage,encodeURIComponent,"onreadystatechange","links","href","className","onerror","dtpCallback",0,"https://rativelypormailer.com/d/2b16b469-db8d-4258-9dec-a9a270ef0c14.js","savedCep");
+      </script>
+      <noscript><link href="https://rativelypormailer.com/d/2b16b469-db8d-4258-9dec-a9a270ef0c14.js?noscript=true&lpurl=" rel="stylesheet"/></noscript>
+      
+    <!-- change cid to campaign ID -->
+</head>
+<body>
+
+<!-- ==================== 导航栏 ==================== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="mobile-menu-btn" id="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-logo">
+            <img src="assets/logo.png" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="https://rativelypormailer.com/click">新闻</a></li>
+            <li><a href="https://rativelypormailer.com/click">趣闻</a></li>
+            <li><a href="https://rativelypormailer.com/click">生活</a></li>
+            <li><a href="https://rativelypormailer.com/click">好康</a></li>
+            <li><a href="https://rativelypormailer.com/click">科技</a></li>
+            <li><a href="https://rativelypormailer.com/click">美食</a></li>
+            <li><a href="https://rativelypormailer.com/click">娱乐</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="social-icons">
+                <a href="https://rativelypormailer.com/click"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="search-btn">
+                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== 文章内容 ==================== -->
+<div class="article-container">
+
+    <span class="read-time">3分钟阅读</span>
+
+    <h1>5年的血汗钱，全部被提光。前男友拿着她<span class="highlight">RM35,000</span>消失了，警察说追不回来。30岁女老师跟同事借了<span class="highlight">RM50</span>，7天后赚回了<span class="highlight">RM72,000</span>，比被偷走的还多一倍</h1>
+
+    <div class="meta-info">
+        <span><strong>作者：</strong>陈美琪 | 大马生活日报</span><br>
+        <span><strong>发布日期：</strong><span id="dynamic-date"></span></span>
+    </div>
+
+    <!-- 封面图 -->
+    <div class="image-box">
+        <img src="assets/1.jpg" alt="女生看着手机银行余额的背影">
+    </div>
+
+    <!-- 开场引言 -->
+    <div class="quote-box"><p>"我存了5年。每个月存RM500，有时候RM600。没有买过一个名牌包，没有去过一次旅行。全部存起来，就是为了有一天可以付房子的 downpayment。"</p></div>
+
+    <!-- ===== SECTION 1: Hook 痛苦背景 ===== -->
+    <p>Siew Yin（化名）说这段话的时候，声音很平静，但说到 <span class="highlight">RM35,000</span> 的时候停了几秒。</p>
+
+    <p>30岁，在 Penang 一间幼儿园做老师，月薪 <span class="bold-black">RM2,400</span>。她说自己不是赚很多的人，但她有纪律。每个月薪水进来，先存钱，剩下的才花。5年下来，她存到了 <span class="highlight">RM35,000</span>。</p>
+
+    <p>直到有一天早上，她打开银行 App，余额显示 <span class="highlight">RM7.30</span>。</p>
+
+    <!-- ===== SECTION 2: 小标题 + 痛苦细节 ===== -->
+    <h2>5年的存款，全部被提光</h2>
+
+    <!-- 痛苦配图 -->
+    <div class="image-box">
+        <img src="assets/2.png" alt="手机银行截图显示余额RM7.30">
+        <p><small>图片：余额从RM35,000变成RM7.30</small></p>
+    </div>
+
+    <p>Siew Yin 和前男友交往了3年。两个月前分手，算是和平分手。但她忘了一件事：分手的时候，<span class="bold-black">ATM 卡没有拿回来</span>。</p>
+
+    <p>她说她当时完全没想到。毕竟交往了3年的人，不会做这种事吧。</p>
+
+    <p>但他做了。前男友拿着她的 ATM 卡，<span class="bold-black">每天去提款机提 RM5,000。连续提了7天。</span></p>
+
+    <p>Siew Yin 平时很少打开银行 App 看余额，因为她知道钱在那里，每个月存进去就好了。直到那天她想查一下余额准备约 agent 看房子，打开一看，<span class="highlight">RM7.30</span>。</p>
+
+    <p>她以为系统出了问题。打去银行查，客服告诉她：过去7天，每天都有一笔 RM5,000 的 ATM 提款，一共 <span class="highlight">RM35,000</span>，全部被提光了。</p>
+
+    <p>她马上打电话给前男友。关机。WhatsApp 被 block 了。打去他公司，同事说他上个星期辞职了。</p>
+
+    <p>她去报警。警察记录了口供，然后告诉她：<span class="bold-black">这种情况属于民事纠纷</span>，因为密码是她自己给的，不算盗窃。要追回来只能请律师走民事诉讼，律师费最少 <span class="highlight">RM5,000</span> 起。</p>
+
+    <p>Siew Yin 说她坐在警察局外面的椅子上，坐了很久。5年。每天在幼儿园被小朋友吵到头痛，每个月忍着不买东西，就为了那个 <span class="highlight">RM35,000</span>。</p>
+
+    <p>7天，全部没了。</p>
+
+    <!-- ===== SECTION 3: 转折/刺激事件 ===== -->
+    <h2>连 RM50 都要借</h2>
+
+    <p>接下来几天，Siew Yin 每天照常去幼儿园做工。小朋友不知道老师发生了什么事，她也不想让任何人知道。</p>
+
+    <p>但现实是，她现在是真的身无分文。银行户口 <span class="highlight">RM7.30</span>，TNG 剩 <span class="highlight">RM18</span>。这个月的房租 <span class="bold-black">RM550</span> 还没交，电话费也快到期了。</p>
+
+    <p>她找了几个朋友借钱。有的说手头紧，有的说下个月才有。她不怪他们，大家都是打工的，谁手上有多余的钱？</p>
+
+    <p>最后她跟幼儿园的同事 Siao Hui 开口了。Siao Hui 二话没说，转了 <span class="bold-black">RM200</span> 给她。</p>
+
+    <p>Siew Yin 说了声谢谢，准备挂电话。Siao Hui 突然说了一句："Yin 啊，你要不要试一下一个东西？我上个月也是很紧的，试了之后现在好很多了。"</p>
+
+    <!-- 转折配图 -->
+    <div class="image-box">
+        <img src="assets/3.png" alt="同事Siao Hui给她介绍YE55">
+    </div>
+
+    <p>Siew Yin 没有多想。Siao Hui 发了一个链接给她，说是一个叫 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a> 的平台。有 Curacao 国际合法牌照，佘诗曼代言，TNG 可以直接充值和提款。Siao Hui 说她自己也是从 RM50 开始的，上个月提了 <span class="highlight">RM28,000</span> 出来。</p>
+
+    <p>Siew Yin 说她一开始根本没有心情管这些。但那天晚上躺在床上，想着房租要怎么交、电话费要怎么还、RM35,000 还有没有可能追回来。越想越睡不着。</p>
+
+    <p>她打开 Siao Hui 发的链接看了看。牌照查得到。提款记录 Siao Hui 也截图给她看了。</p>
+
+    <p><span class="bold-black">RM50</span>。Siao Hui 借给她的 RM200 里面的 RM50。</p>
+
+    <p>她想，反正已经什么都没了。最坏也就是少了 <span class="bold-black">RM50</span>。</p>
+
+    <p>凌晨1点，她注册了 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a>。用 TNG 充了 <span class="highlight">RM50</span>，领了 <span class="bold-black">195次免费旋转</span>。</p>
+
+    <!-- ===== SECTION 4: 发现/初次尝试 ===== -->
+    <h2>那天晚上，她对着手机哭了</h2>
+
+    <p>她选了 Siao Hui 推荐的游戏，用195次免费旋转开始转。</p>
+
+    <p>前面15分钟没什么感觉。赢几块，输几块。她差点关掉去睡了。</p>
+
+    <p>然后屏幕突然一闪，闪电劈下来，满屏的乘数球疯狂掉落，<span class="bold-black">5x、10x、50x</span>，连着一直翻。数字越叠越高，根本停不下来。<span class="bold-black">500x</span> 的时候她整个人坐了起来，手在抖。</p>
+
+    <p>最后画面停下来，跳出一个数字，<span class="highlight">RM24,300。</span></p>
+
+    <!-- 游戏/爆分截图 -->
+    <div class="image-box">
+        <img src="assets/4.png" alt="手机截图赢利RM24,300">
+        <p><small>图片：第一晚赢利截图</small></p>
+    </div>
+
+    <p>Siew Yin 说她当时<span class="bold-black">又开心又害怕</span>。开心是因为从来没见过这种数字出现在自己的屏幕上。但她听过太多网上骗局了，赢了钱按提款，结果"系统维护"、"账号异常"，最后一分钱都拿不出来。</p>
+
+    <p>她说她犹豫了很久，手指放在提款按钮上面不敢按。但最后还是按了。<span class="highlight">RM24,300</span>，全部。</p>
+
+    <p>然后就是等。1分钟，什么都没有。2分钟，还是没有。她说她开始觉得果然又是骗人的。</p>
+
+    <p>3分钟。TNG 通知响了。</p>
+
+    <div class="quote-box"><p>"<span class="highlight">RM24,300</span>。到账了。"</p></div>
+
+    <p>她马上打开 TNG 看了一遍，又看了一遍。是真的到了。</p>
+
+    <p>Siew Yin 说她那一刻哭了很久。不是因为 RM24,300。是因为过去两个星期，她每天都在想自己是不是全世界最傻的人，存了5年的钱被一个自己信任的人拿走了。</p>
+
+    <p>那一刻她觉得，<span class="bold-black">也许还有希望。</span></p>
+
+    <!-- ===== SECTION 5: 高潮/人生翻转 ===== -->
+    <h2>7天，比被偷走的还多一倍</h2>
+
+    <p>接下来几天，她每天放学后回到家花一两个小时。</p>
+
+    <p>第3天又中了一次，闪电连劈，乘数叠到 <span class="bold-black">700x</span>，进了 <span class="highlight">RM31,000</span>。</p>
+
+    <p>第5天再中了 <span class="highlight">RM16,700</span>。</p>
+
+    <p>第7天，她打开 MAE，余额显示，<span class="highlight">RM72,000。</span></p>
+
+    <!-- 余额截图 -->
+    <div class="image-box">
+        <img src="assets/5.jpg" alt="MAE余额截图RM72,000">
+        <p><small>图片：Siew Yin的MAE余额</small></p>
+    </div>
+
+    <p><span class="highlight">RM72,000</span>。比前男友偷走的 <span class="bold-black">RM35,000</span> 还多了一倍。</p>
+
+    <p>她做的第一件事：把 <span class="bold-black">RM200</span> 还给 Siao Hui，另外包了一个 <span class="bold-black">RM500</span> 的红包给她。Siao Hui 不肯收，她硬塞过去说"没有你那天的 RM200，就没有今天的 RM72,000"。</p>
+
+    <p>然后她交了房租，还了电话费，把银行密码全部换了。</p>
+
+    <p>她说她现在不打算追那个 <span class="bold-black">RM35,000</span> 了。律师费 RM5,000，打官司要一两年。不值得。</p>
+
+    <!-- 情感高潮引言 -->
+    <div class="quote-box"><p>"他拿走了我的 RM35,000，但我现在有 RM72,000。我不需要他还了。"</p></div>
+
+    <!-- ===== SECTION 6: Offer Reveal ===== -->
+    <h2>如何用RM50开始？</h2>
+
+    <p>Siew Yin 现在还是在幼儿园做老师。但每天放学后都会打开 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a> 玩一两个小时。</p>
+
+    <p>"以前放学回来就是对着银行 App 算这个月还能存多少。现在打开 YE55 转一转，心情不一样了。<span class="bold-black">至少知道就算被人拿走了，我自己也赚得回来。</span>"</p>
+
+    <p>她说现在已经重新开始存 downpayment 了。这次密码只有她自己知道。</p>
+
+    <!-- 转账记录截图 -->
+    <div class="image-box">
+        <img src="assets/6.png" alt="TNG转账记录截图">
+        <p><small>图片：来自YE55的TNG转账记录</small></p>
+    </div>
+
+    <p>以下是 Siew Yin 分享的步骤：</p>
+
+    <!-- ===== CTA: 5步行动指引 ===== -->
+    <div class="step-list">
+        <h3>用 RM50 开启你的逆袭之路</h3>
+        <p><strong>第一步:</strong> 点击下方官方链接进入 <a href="https://rativelypormailer.com/click" class="brand-link">YE55</a> 注册页面</p>
+        <p><strong>第二步:</strong> 用TNG充值 <span class="bold-black">RM50</span>，马上领取 <span class="bold-black">195次免费旋转</span></p>
+        <p><strong>第三步:</strong> 选择高RTP高赔率的热门游戏，开始旋转</p>
+        <p><strong>第四步:</strong> 开始转！闪电劈下来，看倍数一直叠上去</p>
+        <p><strong>第五步:</strong> 按提款，奖金几分钟进TNG / MAE，不用等不用求</p>
+    </div>
+
+    <p>命运不会一直亏待你。有时候，你离翻盘只差那一次勇敢的决定。</p>
+
+    <!-- CTA 按钮 -->
+    <a href="https://rativelypormailer.com/click" target="_blank" class="cta-button" id="claimOffer">立即点击领取195次免费旋转，改变你的人生！</a>
+
+    <!-- 信任声明 -->
+    <div class="footer-note">
+        （由TNG官方长期合作平台 YE55 提供技术支持，Curaçao 合法牌照，佘诗曼代言，资金安全100%保障）
+    </div>
+
+</div>
+
+<!-- 动态日期：自动显示3天前的日期 -->
+<script>
+    (function() {
+        const dateElement = document.getElementById('dynamic-date');
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() - 3);
+        const year = targetDate.getFullYear();
+        const month = targetDate.getMonth() + 1;
+        const day = targetDate.getDate();
+        dateElement.textContent = year + '年' + month + '月' + day + '日';
+    })();
+</script>
+
+</body>
+</html>
